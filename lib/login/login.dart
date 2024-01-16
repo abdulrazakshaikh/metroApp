@@ -43,18 +43,29 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
               toolbarHeight: 180,
               backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
               foregroundColor: Theme.of(context).colorScheme.onTertiary,
-              titleTextStyle: GoogleFonts.roboto(
+              titleTextStyle: GoogleFonts.robotoCondensed(
                 textStyle: Theme.of(context).appBarTheme.titleTextStyle,
                 color: Theme.of(context).colorScheme.onPrimary,
-                fontWeight: FontWeight.w400
-              ),
-              title: Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
-                width: 120, height: 120,
-                child: Image.asset('assets/images/mobile.png',
-                  fit: BoxFit.contain,
+                fontWeight: FontWeight.w900
+              ),  
+              flexibleSpace: FlexibleSpaceBar(
+                background: Image.asset(
+                  'assets/images/colorful-train-station-concept_1284-36213.jpg',
+                  fit: BoxFit.cover, alignment: Alignment.bottomCenter,
                 ),
-              ),              
+                title: Container(
+                  height: 100, alignment: Alignment.center,
+                  child: Text('Welcome to MetroApp', 
+                  style: GoogleFonts.robotoCondensed(
+                    textStyle: Theme.of(context).appBarTheme.titleTextStyle,
+                    // color: Theme.of(context).colorScheme.onPrimary,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 30
+                  ),  
+                  ),
+                ),
+                titlePadding: EdgeInsets.all(0), // Adjust padding as needed
+              ),          
               centerTitle: true,
               actions: [],
           ),
@@ -68,7 +79,8 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
               top: 0, left: 0, right: 0,
               child: Container(
                 height: 100,
-                color: Theme.of(context).colorScheme.tertiaryContainer,
+                // color: Theme.of(context).colorScheme.tertiaryContainer,
+                color: Color(0xFF465a65),
               ),
             ),
             Padding(

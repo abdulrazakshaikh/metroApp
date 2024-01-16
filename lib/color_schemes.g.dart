@@ -4,6 +4,71 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:metro_app/constant.dart';
 
+
+
+// ------COLORSCHEME--------//
+const lightColorScheme = ColorScheme(
+  brightness: Brightness.light,
+  primary: arsprimary,
+  onPrimary: arsonprimary,
+  primaryContainer: arsprimarycontainer,
+  onPrimaryContainer: arsprimary,
+
+  secondary: arssecondary,
+  onSecondary: arsonsecondary,
+  secondaryContainer: arssecondarycontainer,
+  onSecondaryContainer: arssecondary,
+  
+  tertiary: arstertiary,
+  onTertiary: arsontertiary,
+  tertiaryContainer: arstertiarycontainer,
+  onTertiaryContainer: arstertiary,
+
+  surface: arssurfaceLight,
+  onSurface: Color(0xFF1C1B1F),
+  surfaceVariant: Color(0xFFE7E0EC),
+  onSurfaceVariant: Color(0xFF49454F),
+  background: arsbackgroundLight,
+  onBackground: Color(0xFF1C1B1F),
+  error: arserror,
+  onError: Color(0xFFFFFFFF),
+  errorContainer: Color(0xFFF9DEDC),
+  onErrorContainer: Color(0xFF410E0B),
+  shadow: arsshadowlight,
+  outline: arsoutlinelight,
+);
+
+const darkColorScheme = ColorScheme(
+  brightness: Brightness.dark,
+  primary: arsprimary,
+  onPrimary: arsonprimary,
+  primaryContainer: arsprimarycontainer,
+  onPrimaryContainer: arsprimary,
+
+  secondary: arssecondary,
+  onSecondary: arsonsecondary,
+  secondaryContainer: arssecondarycontainer,
+  onSecondaryContainer: arssecondary,
+  
+  tertiary: arstertiary,
+  onTertiary: arsontertiary,
+  tertiaryContainer: arstertiarycontainer,
+  onTertiaryContainer: arstertiary,
+
+  surface: arssurfaceDark,
+  onSurface: Color(0xFFE6E1E5),
+  surfaceVariant: Color(0xFF49454F),
+  onSurfaceVariant: Color(0xFFCAC4D0),
+  background: arsbackgroundDark,
+  onBackground: Color(0xFFE6E1E5),
+  error: Color(0xFFF2B8B5),
+  onError: Color(0xFF601410),
+  errorContainer: Color(0xFF8C1D18),
+  onErrorContainer: Color(0xFFF2B8B5),
+  shadow: arsshadowdark,
+  outline: arsoutlinedark,
+);
+
 // ------TEXT THEME--------//
 TextTheme lightTextTheme = TextTheme(
   displayLarge: GoogleFonts.roboto(
@@ -104,86 +169,33 @@ TextTheme darkTextTheme =  TextTheme(
 
 
 
-// ------COLORSCHEME--------//
-const lightColorScheme = ColorScheme(
-  brightness: Brightness.light,
-
-  primary: arsprimary,
-  onPrimary: arsonprimary,
-  primaryContainer: arsprimarycontainer,
-  onPrimaryContainer: arsprimary,
-
-  secondary: arssecondary,
-  onSecondary: arsonsecondary,
-  secondaryContainer: arssecondarycontainer,
-  onSecondaryContainer: arssecondary,
-
-  tertiary: arstertiary,
-  onTertiary: arsontertiary,
-  tertiaryContainer: arstertiarycontainer,
-  onTertiaryContainer: arstertiary,
-
-  surface: arssurfaceLight,
-  onSurface: Color(0xFF1C1B1F),
-  surfaceVariant: Color(0xFFE7E0EC),
-  onSurfaceVariant: Color(0xFF49454F),
-  background: arsbackgroundLight,
-  onBackground: Color(0xFF1C1B1F),
-  error: arserror,
-  onError: Color(0xFFFFFFFF),
-  errorContainer: Color(0xFFF9DEDC),
-  onErrorContainer: Color(0xFF410E0B),
-  shadow: arsshadow,
-  outline: arsoutline,
-);
-
-const darkColorScheme = ColorScheme(
-  brightness: Brightness.dark,
-
-  primary: arsprimary,
-  onPrimary: Color(0xFFFFFFFF),
-  primaryContainer: arsprimarycontainer,
-  onPrimaryContainer: arsprimary,
-
-  secondary: arssecondary,
-  onSecondary: Color(0xFFFFFFFF),
-  secondaryContainer: arssecondarycontainer,
-  onSecondaryContainer: arssecondary,
-
-  tertiary: arstertiary,
-  onTertiary: Color(0xFFFFFFFF),
-  tertiaryContainer: arstertiarycontainer,
-  onTertiaryContainer: arstertiary,
-
-  surface: arssurfaceDark,
-  onSurface: Color(0xFFE6E1E5),
-  surfaceVariant: Color(0xFF49454F),
-  onSurfaceVariant: Color(0xFFCAC4D0),
-  background: arsbackgroundDark,
-  onBackground: Color(0xFFE6E1E5),
-  error: Color(0xFFF2B8B5),
-  onError: Color(0xFF601410),
-  errorContainer: Color(0xFF8C1D18),
-  onErrorContainer: Color(0xFFF2B8B5),
-  shadow: arsshadow,
-  outline: Color(0xFF938F99),
-);
-
 // ------APPBAR--------//
 AppBarTheme lightAppbarTheme = AppBarTheme(
+  foregroundColor: arstextColorLight,
   backgroundColor: arsappbarbackgroundLight,
   surfaceTintColor: arsappbarbackgroundLight,
   elevation: 4,
-  shadowColor: arsshadow,
-  titleTextStyle: GoogleFonts.robotoCondensed(textStyle: const TextStyle(fontSize: 16, letterSpacing: 1.2, fontWeight: FontWeight.w600)),
+  
+  shadowColor: arsshadowlight,
+  titleTextStyle: GoogleFonts.robotoCondensed(
+    textStyle: const TextStyle(fontSize: 16, letterSpacing: 1.2, color: arstextColorLight, fontWeight: FontWeight.w600)
+  ),
+  toolbarTextStyle: GoogleFonts.robotoCondensed(
+    textStyle: const TextStyle(fontSize: 16, letterSpacing: 1.2, color: arstextColorLight, fontWeight: FontWeight.w600)
+  ),
 );
 AppBarTheme darkAppbarTheme = AppBarTheme(
+  foregroundColor: arstextColorDark,
   backgroundColor: arsappbarbackgroundDark,
   surfaceTintColor: arsappbarbackgroundDark,
   elevation: 4,
-  shadowColor: arsshadow,
+  shadowColor: arsshadowdark,
   titleTextStyle: GoogleFonts.robotoCondensed(
-      textStyle: const TextStyle(fontSize: 16, color: Colors.white, letterSpacing: 1.2,fontWeight: FontWeight.w600)),
+    textStyle: const TextStyle(fontSize: 16, color: Colors.white, letterSpacing: 1.2, fontWeight: FontWeight.w600)
+  ),
+  toolbarTextStyle: GoogleFonts.robotoCondensed(
+    textStyle: const TextStyle(fontSize: 16, color: Colors.white, letterSpacing: 1.2, fontWeight: FontWeight.w600)
+  ),
 );
 
 // ------ICON THEME--------//
@@ -298,15 +310,89 @@ TextButtonThemeData darkTextButtonTheme = TextButtonThemeData(
   ),
 );
 
+// ------CARD--------//
+CardTheme lightCardTheme = CardTheme(
+  color: arscardbackgroundLight,
+  surfaceTintColor: arscardbackgroundLight,
+  shadowColor: arsshadowlight.withOpacity(0.6),
+);
+CardTheme darkCardTheme = CardTheme(
+  color: arscardbackgroundDark,
+  surfaceTintColor: arscardbackgroundLight,
+  shadowColor: arsshadowdark.withOpacity(0.6),
+);
+
+
+// ------DIVIDER--------//
+DividerThemeData lightDividerTheme = DividerThemeData(
+  space: 0,
+  color: Colors.grey.shade300,
+);
+DividerThemeData darkDividerTheme = DividerThemeData(
+  space: 0,
+  color: Colors.grey.shade800,
+);
+
+
+// ------DIALOG--------//
+DialogTheme lightDialogTheme = DialogTheme(
+  backgroundColor: arsdialogbackgroundLight,
+  titleTextStyle: GoogleFonts.roboto(
+    textStyle: const TextStyle(fontSize: 18, letterSpacing: 1.2, color: arstextColorLight, fontWeight: FontWeight.w600)
+  ), 
+  contentTextStyle: GoogleFonts.roboto(
+    textStyle: const TextStyle(fontSize: 13, letterSpacing: 1, color: arstextColorLight, fontWeight: FontWeight.w400)
+  ), 
+  actionsPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+  
+);
+DialogTheme darkDialogTheme = DialogTheme(
+  backgroundColor: arsdialogbackgroundDark,
+  titleTextStyle: GoogleFonts.roboto(
+    textStyle: const TextStyle(fontSize: 18, letterSpacing: 1.2, color: arstextColorDark, fontWeight: FontWeight.w600)
+  ),
+  contentTextStyle: GoogleFonts.roboto(
+    textStyle: const TextStyle(fontSize: 13, letterSpacing: 1, color: arstextColorDark, fontWeight: FontWeight.w400)
+  ), 
+  actionsPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+);
+
+
+
+// ------RADIO--------//
+RadioThemeData lightRadioTheme = RadioThemeData();
+RadioThemeData darkRadioTheme = RadioThemeData();
+
+// ------CHECKBOX--------//
+CheckboxThemeData lightCheckboxTheme = CheckboxThemeData(
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(4),
+  )
+);
+CheckboxThemeData darkCheckboxTheme = CheckboxThemeData(
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(4),
+  )
+);
+
+
+
+// ------TEXTFIELD - INPUT DECORATION--------//
 InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
   enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1)),
   focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: arsprimary)),
+  hintStyle: GoogleFonts.roboto(
+    color: arstextColorLight.withOpacity(0.6), fontSize: 12, letterSpacing: 1.8, fontWeight: FontWeight.w300
+  ),
 );
-
 InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
   enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1)),
   focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: arsprimary)),
-);
+  hintStyle: GoogleFonts.roboto(
+    color: arstextColorDark.withOpacity(0.6), fontSize: 12, letterSpacing: 1.8, fontWeight: FontWeight.w300
+  ),
+); 
+
 
 // ------THEMEDATA--------//
 ThemeData lightthemeData(BuildContext context) {
@@ -315,6 +401,8 @@ ThemeData lightthemeData(BuildContext context) {
     primaryColor: arsprimary,
     colorScheme: lightColorScheme,
     appBarTheme: lightAppbarTheme,
+    cardTheme: lightCardTheme,
+    dialogTheme: lightDialogTheme,
     iconTheme: lightIconTheme,    
     buttonTheme: lightButtonTheme,
     elevatedButtonTheme: lightElevatedButtonTheme,
@@ -322,6 +410,8 @@ ThemeData lightthemeData(BuildContext context) {
     textButtonTheme: lightTextButtonTheme,
     textTheme : lightTextTheme,
     inputDecorationTheme: lightInputDecorationTheme,
+    radioTheme: lightRadioTheme,
+    checkboxTheme: lightCheckboxTheme,
   );
 }
 
@@ -331,6 +421,8 @@ ThemeData darkThemeData(BuildContext context) {
     primaryColor: arsprimary,
     colorScheme: darkColorScheme,
     appBarTheme: darkAppbarTheme,
+    cardTheme: darkCardTheme,
+    dialogTheme: darkDialogTheme,
     iconTheme: darkIconTheme,
     buttonTheme: darkButtonTheme,
     elevatedButtonTheme: darkElevatedButtonTheme,
@@ -338,5 +430,7 @@ ThemeData darkThemeData(BuildContext context) {
     textButtonTheme: darkTextButtonTheme,
     textTheme : darkTextTheme,
     inputDecorationTheme: darkInputDecorationTheme,
+    radioTheme: darkRadioTheme,
+    checkboxTheme: darkCheckboxTheme,
   );
 }
