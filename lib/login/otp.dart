@@ -38,32 +38,21 @@ class _OTPState extends State<OTP> with TickerProviderStateMixin {
           return [
             SliverAppBar(
               elevation: 0,
-              toolbarHeight: 180,
-              backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
+              toolbarHeight: 120,
+              backgroundColor: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
               foregroundColor: Theme.of(context).colorScheme.onTertiary,
               titleTextStyle: GoogleFonts.robotoCondensed(
                 textStyle: Theme.of(context).appBarTheme.titleTextStyle,
                 color: Theme.of(context).colorScheme.onPrimary,
                 fontWeight: FontWeight.w900
               ),  
-              flexibleSpace: FlexibleSpaceBar(
-                background: Image.asset(
-                  'assets/images/colorful-train-station-concept_1284-36213.jpg',
-                  fit: BoxFit.cover, alignment: Alignment.bottomCenter,
+              title: Container(
+              height: 120, alignment: Alignment.center, padding: EdgeInsets.all(10),  
+                  child: Image.asset(
+                  'assets/images/banner.png',
+                  fit: BoxFit.contain, alignment: Alignment.bottomCenter,
                 ),
-                title: Container(
-                  height: 100, alignment: Alignment.center,
-                  child: Text('Welcome to MetroApp', 
-                  style: GoogleFonts.robotoCondensed(
-                    textStyle: Theme.of(context).appBarTheme.titleTextStyle,
-                    // color: Theme.of(context).colorScheme.onPrimary,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 30
-                  ),  
-                  ),
-                ),
-                titlePadding: EdgeInsets.all(0), // Adjust padding as needed
-              ),          
+              ),
               centerTitle: true,
               actions: [],
           ),
@@ -77,7 +66,7 @@ class _OTPState extends State<OTP> with TickerProviderStateMixin {
               top: 0, left: 0, right: 0,
               child: Container(
                 height: 100,
-                color: Color(0xFF465a65),
+                color: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
               ),
             ),
             Padding(

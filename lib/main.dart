@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
           theme: lightthemeData(context),
           darkTheme: darkThemeData(context),
           
-          // home: Dashboard(title: 'Dashboard'),
-          home: SplashScreen(),
+          home: Dashboard(title: 'Dashboard'),
+          // home: SplashScreen(),
         );
       });
   }

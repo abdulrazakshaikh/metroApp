@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:metro_app/main.dart';
+import 'package:metro_app/profile.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key, required this.title}) : super(key: key);
@@ -96,7 +97,7 @@ var _cardDecoration = BoxDecoration(
   var width = MediaQuery.of(context).size.width;
   var columns = (width ~/ maxWidth) + 1;
   var columnWidth = width / columns;
-  var aspectRatio = columnWidth / 100;
+  var aspectRatio = columnWidth / 86;
 
     return Scaffold(
       appBar: AppBar(
@@ -115,7 +116,13 @@ var _cardDecoration = BoxDecoration(
         ),
         IconButton(
           icon: Icon(Icons.person_2_outlined),
-          onPressed : (){},
+          onPressed : (){
+            Navigator.push(context, 
+              MaterialPageRoute(
+                builder: (context) => Profile(title: 'Profile')
+              )
+            );
+          },
         ),
         
         ],
@@ -123,8 +130,16 @@ var _cardDecoration = BoxDecoration(
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            Container(
+              height: 120, alignment: Alignment.center, padding: EdgeInsets.all(10),  
+              color: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
+                child: Image.asset(
+                'assets/images/banner.png',
+                fit: BoxFit.contain, alignment: Alignment.bottomCenter,
+              ),
+            ),
             Padding(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(5),
               child: GridView.builder(
               primary: true,
               physics: NeverScrollableScrollPhysics(),
@@ -166,7 +181,7 @@ var _cardDecoration = BoxDecoration(
                           child: Image.asset('${carditem["img"]}', fit: BoxFit.contain),
                         ),
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: 3),
                         Container(
                           alignment: Alignment.topCenter,
                           child: Text('${carditem["title"]}', textAlign: TextAlign.center, softWrap: false,
