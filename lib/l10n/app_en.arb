@@ -1,0 +1,11 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "welcome_to_metro": "Welcome to Metro App",
+  "sign_in_title": "Sign In",
+  "enter_mobile_number": "Enter Mobile Number"
+
+
+}
