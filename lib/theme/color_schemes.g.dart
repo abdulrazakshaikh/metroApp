@@ -495,6 +495,23 @@ ToggleButtonsThemeData darkToggleButtonsTheme = ToggleButtonsThemeData(
   textStyle: GoogleFonts.roboto(color: arstextColorDark, fontSize: 14, letterSpacing: 1, fontWeight: FontWeight.w500),
 );
 
+// ------TABBAR BUTTON--------//
+TabBarTheme lightTabbarTheme = TabBarTheme(
+  indicatorColor: arsprimary,
+  unselectedLabelColor: arstextColorLight,
+  unselectedLabelStyle: GoogleFonts.roboto(color: arstextColorLight, fontSize: 14, letterSpacing: 1, fontWeight: FontWeight.w500),
+  labelColor: arsprimary,
+  labelStyle: GoogleFonts.roboto(color: arsprimary, fontSize: 14, letterSpacing: 1, fontWeight: FontWeight.w500),
+);
+TabBarTheme darkTabbarTheme = TabBarTheme(
+  indicatorColor: arsprimary,
+  unselectedLabelColor: arstextColorDark,
+  unselectedLabelStyle: GoogleFonts.roboto(color: arstextColorDark, fontSize: 14, letterSpacing: 1, fontWeight: FontWeight.w500),
+  labelColor: arsprimary,
+  labelStyle: GoogleFonts.roboto(color: arsprimary, fontSize: 14, letterSpacing: 1, fontWeight: FontWeight.w500),
+);
+
+
 // ------THEMEDATA--------//
 ThemeData lightthemeData(BuildContext context) {
   return ThemeData.light().copyWith(
@@ -517,6 +534,7 @@ ThemeData lightthemeData(BuildContext context) {
     dividerTheme: lightDividerTheme,
     datePickerTheme: lightPickerTheme,
     toggleButtonsTheme: lightToggleButtonsTheme,
+    tabBarTheme: lightTabbarTheme,
   );
 }
 
@@ -541,5 +559,6 @@ ThemeData darkThemeData(BuildContext context) {
     dividerTheme: darkDividerTheme,
     datePickerTheme: darkPickerTheme,
     toggleButtonsTheme: darkToggleButtonsTheme,
+    tabBarTheme: darkTabbarTheme,
   );
 }
