@@ -87,13 +87,6 @@ class _HomeState extends State<Home> {
                   body: <Widget>[
                     Dashboard(title: 'Dashboard'),
                     BookTicketSteps(title: 'Book Tickets'),
-                    // Container(
-                    //   alignment: Alignment.center,
-                    //   color: Colors.green.shade100,
-                    //   child: Text('Book Tickets',
-                    //     style: Theme.of(context).textTheme.displayMedium,
-                    //   ),
-                    // ),
                     Container(
                       alignment: Alignment.center,
                       color: Colors.deepPurpleAccent.shade100,
