@@ -1,6 +1,6 @@
 
 import 'dart:html';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +16,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> with TickerProviderStateMixin {
-  get AppLocalizations => null;
-
- 
-
+  
   @override
   void initState() {
     super.initState();

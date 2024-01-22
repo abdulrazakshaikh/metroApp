@@ -6,16 +6,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:metro/ui/login/login.dart';
 import 'package:metro/ui/profile.dart';
 
-class Settings extends StatefulWidget {
-  const Settings({Key? key, required this.title}) : super(key: key);
+class Account extends StatefulWidget {
+  const Account({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<Account> createState() => _AccountState();
 }
 
-class _SettingsState extends State<Settings> {
+class _AccountState extends State<Account> {
 
 void _themeChange() {
   MyApp.themeNotifier.value = 
@@ -96,7 +96,7 @@ void _themeChange() {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Settings'.toUpperCase(),
+                          Text('Account Details'.toUpperCase(),
                           style: GoogleFonts.robotoCondensed(
                             textStyle: Theme.of(context).textTheme.titleMedium,
                             letterSpacing: 1.25,
@@ -108,101 +108,84 @@ void _themeChange() {
                     ),
                     ListTile(
                       horizontalTitleGap: 5,
-                      contentPadding: EdgeInsets.all(10),
-                      title: Text('Access Location',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                      title: Text('Name : ',
                         style: GoogleFonts.robotoCondensed(
-                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          textStyle: Theme.of(context).textTheme.labelMedium,
                           letterSpacing: 1.2,
                         ),
                       ),
-                      trailing: Switch(
-                        value: switchValue,
-                        onChanged: (value) {
-                          setState(() {
-                            switchValue = value;
-                          });
-                        },
+                      trailing: Text('John Doe',
+                        style: GoogleFonts.robotoCondensed(
+                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          letterSpacing: 1.2, fontWeight: FontWeight.w500
+                        ),
                       ),
                     ),
-                    Divider(height: 1),
                     ListTile(
                       horizontalTitleGap: 5,
-                      contentPadding: EdgeInsets.all(10),
-                      title: Text('Enable App Lock',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                      title: Text('Email : ',
                         style: GoogleFonts.robotoCondensed(
-                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          textStyle: Theme.of(context).textTheme.labelMedium,
                           letterSpacing: 1.2,
                         ),
                       ),
-                      trailing: Switch(
-                        value: switchValue,
-                        onChanged: (value) {
-                          setState(() {
-                            switchValue = value;
-                          });
-                        },
+                      trailing: Text('johndoe@gmail.com',
+                        style: GoogleFonts.robotoCondensed(
+                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          letterSpacing: 1.2, fontWeight: FontWeight.w500
+                        ),
                       ),
                     ),
-                    Divider(height: 1),
                     ListTile(
                       horizontalTitleGap: 5,
-                      contentPadding: EdgeInsets.all(10),
-                      title: Text('Enable Promotional Messages',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                      title: Text('Mobile : ',
                         style: GoogleFonts.robotoCondensed(
-                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          textStyle: Theme.of(context).textTheme.labelMedium,
                           letterSpacing: 1.2,
                         ),
                       ),
-                      trailing: Switch( 
-                        value: switchValue,
-                        onChanged: (value) {
-                          setState(() {
-                            switchValue = value;
-                          });
-                        },
+                      trailing: Text('+91 9876543210',
+                        style: GoogleFonts.robotoCondensed(
+                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          letterSpacing: 1.2, fontWeight: FontWeight.w500
+                        ),
                       ),
                     ),
-                    Divider(height: 1),
                     ListTile(
                       horizontalTitleGap: 5,
-                      contentPadding: EdgeInsets.all(10),
-                      title: Text('Select Language',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                      title: Text('Gender : ',
                         style: GoogleFonts.robotoCondensed(
-                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          textStyle: Theme.of(context).textTheme.labelMedium,
                           letterSpacing: 1.2,
                         ),
                       ),
-                      trailing: Container(
-                        width: 120,
-                        child: DropdownButtonFormField<String>(
-                        value: selectedOption,
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedOption = newValue;
-                          });
-                        },
-                        items: dropdownOptions.map((String option) {
-                          return DropdownMenuItem<String>(
-                            value: option,
-                            child: Text(
-                              option,
-                              style: GoogleFonts.robotoCondensed(
-                                textStyle: Theme.of(context).textTheme.titleMedium,
-                                letterSpacing: 1.2,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.grey.withOpacity(0.7))),
-                          focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary)),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      trailing: Text('Male',
+                        style: GoogleFonts.robotoCondensed(
+                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          letterSpacing: 1.2, fontWeight: FontWeight.w500
                         ),
                       ),
-                      )
                     ),
-          
+                    ListTile(
+                      horizontalTitleGap: 5,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                      title: Text('Date of Birth : ',
+                        style: GoogleFonts.robotoCondensed(
+                          textStyle: Theme.of(context).textTheme.labelMedium,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
+                      trailing: Text('01/01/1947',
+                        style: GoogleFonts.robotoCondensed(
+                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          letterSpacing: 1.2, fontWeight: FontWeight.w500
+                        ),
+                      ),
+                    ),
 
                   ],
                 ),
@@ -217,4 +200,5 @@ void _themeChange() {
       
     );
   }
+
 }

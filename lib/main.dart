@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
 
             // home: Dashboard(title: 'Dashboard'),
             // home: SplashScreen(),
-            // home: Home(title: 'Homepage')
-            home: Register(),
+            home: Home(title: 'Homepage')
+            // home: Register(),
           );
         });
   }

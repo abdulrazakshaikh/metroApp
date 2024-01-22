@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:metro/main.dart';
+import 'package:metro/ui/bookticket_steps.dart';
 import 'package:metro/ui/profile.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BookTicket extends StatefulWidget {
   const BookTicket({Key? key, required this.title}) : super(key: key);
@@ -13,125 +15,55 @@ class BookTicket extends StatefulWidget {
 }
 
 class _BookTicketState extends State<BookTicket> {
-
-  int _currentStep = 0;
-  StepperType stepperType = StepperType.vertical;
-
-  switchStepType() {
-    setState(() => stepperType == StepperType.vertical
-        ? stepperType = StepperType.horizontal
-        : stepperType = StepperType.vertical
-    );
+  void _themeChange() {
+    MyApp.themeNotifier.value = 
+    MyApp.themeNotifier.value == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
   }
 
+  int _currentStep = 0;
+  String? selectedValue;
+
+  // List of items for the dropdown menu
+  List<String> items = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
   @override
   Widget build(BuildContext context) {
-  
-
-  
-
-    // return Stepper(
-    //     currentStep: _currentStep,
-    //     type: StepperType.horizontal,
-    //     steps: _steps,
-    //     onStepContinue: () {
-    //       setState(() {
-    //         if (_currentStep < _steps.length - 1) {
-    //           _currentStep += 1;
-    //         } else {
-    //           // Reset to the first step when the last step is reached
-    //           _currentStep = 0;
-    //         }
-    //       });
-    //     },
-    //     onStepCancel: () {
-    //       setState(() {
-    //         if (_currentStep > 0) {
-    //           _currentStep -= 1;
-    //         } else {
-    //           // Handle when the first step is reached
-    //         }
-    //       });
-    //     },
-    // );
-    return Stepper(
-              //physics: ClampingScrollPhysics(),
-              steps: _stepper(),
-              type: stepperType,
-              currentStep: this._currentStep,
-
-
-              // controlsBuilder:  (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-              //   return Container();
-              
-              // },
-              onStepContinue: () {
-                setState(() {
-                  if (this._currentStep < this._stepper().length - 1) {
-                    this._currentStep = this._currentStep + 1;
-                  } else {
-                    //Logic
-                    print('complete');
-                  }
-                });
-              },
-              onStepCancel: () {
-                setState(() {
-                  if (this._currentStep > 0) {
-                    this._currentStep = this._currentStep - 1;
-                  } else {
-                    this._currentStep = 0;
-                  }
-                });
-              },
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 1,
+        title: Text(widget.title),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: <Color>[Color(0xFF003753), Color(0xFF065d8a)]
+            )          
+         ),  
+        ),
+        actions: [
+        IconButton(
+        icon: Icon(MyApp.themeNotifier.value == ThemeMode.light
+          ? Icons.dark_mode_outlined
+          : Icons.light_mode_outlined),
+          onPressed : _themeChange,
+        ),
+        IconButton(
+          icon: Icon(Icons.notifications_outlined),
+          onPressed : (){},
+        ),
+        IconButton(
+          icon: Icon(Icons.person_2_outlined),
+          onPressed : (){
+            Navigator.push(context, 
+              MaterialPageRoute(builder: (context) => Profile(title: 'Profile')), 
             );
-  }
-
-  List<Step> _stepper() {
-    List<Step> _steps = [
-      Step(
-          title: Text('Order Sent for Confirmation'.toLowerCase(),
-          
-          ),
-          
-          content: Container(
-            child: Column(
-              children: <Widget>[
-
-              ],
-            ),
-          ),
-          isActive: _currentStep >= 0,
-          state: StepState.complete
-          ),
-      Step(
-        title: Text('Review your Order'.toLowerCase(),),
-          content: Container(
-            child: Column(
-              children: <Widget>[
-
-              ],
-            ),
-          ),
-          isActive: _currentStep >= 1,
-          state: StepState.complete,
-          ),
-        Step(
-          title: Text('Review your Order'.toLowerCase(),),
-          
-          content: Container(
-            child: Column(
-              children: <Widget>[
-
-              ],
-            ),
-          ),
-          isActive: _currentStep >= 2,
-          state: StepState.complete
-          ),
-      
-    ];
-    return _steps;
+          },
+        ),
+        
+        ],
+      ),
+      body : BookTicketSteps(title: 'Book Ticket')
+    );
   }
 }

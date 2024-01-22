@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:metro/main.dart';
 import 'package:metro/ui/bookticket.dart';
+import 'package:metro/ui/bookticket_steps.dart';
 import 'package:metro/ui/dashboard.dart';
 import 'package:metro/ui/profile.dart';
 
@@ -85,13 +86,14 @@ class _HomeState extends State<Home> {
                 child: Scaffold(
                   body: <Widget>[
                     Dashboard(title: 'Dashboard'),
-                    Container(
-                      alignment: Alignment.center,
-                      color: Colors.green.shade100,
-                      child: Text('View Tickets',
-                        style: Theme.of(context).textTheme.displayMedium,
-                      ),
-                    ),
+                    BookTicketSteps(title: 'Book Tickets'),
+                    // Container(
+                    //   alignment: Alignment.center,
+                    //   color: Colors.green.shade100,
+                    //   child: Text('Book Tickets',
+                    //     style: Theme.of(context).textTheme.displayMedium,
+                    //   ),
+                    // ),
                     Container(
                       alignment: Alignment.center,
                       color: Colors.deepPurpleAccent.shade100,

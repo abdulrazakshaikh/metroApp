@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:metro/main.dart';
+import 'package:metro/ui/account.dart';
 import 'package:metro/ui/dashboard.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:metro/ui/login/login.dart';
@@ -26,7 +27,7 @@ List menuList = [
   {
     "id": "001",
     "icon" : Icons.settings_outlined,
-    "title": "Setting",
+    "title": "Settings",
   },
   {
     "id": "002",
@@ -131,13 +132,11 @@ List menuList = [
                             :
                             item['id']== '002' ?
                             Navigator.push(context, 
-                              MaterialPageRoute(builder: (context) => Dashboard(title: 'Account')), 
+                              MaterialPageRoute(builder: (context) => Account(title: 'Account')), 
                             )
                             :
                             item['id']== '003' ?
-                            Navigator.push(context, 
-                              MaterialPageRoute(builder: (context) => Dashboard(title: 'Disclaimer')), 
-                            )
+                           _showDisclaimerDialog(context)
                             :
                             item['id']== '004' ?
                             Navigator.push(context, 
@@ -164,4 +163,52 @@ List menuList = [
       
     );
   }
+
+// DISCLAIMER DIALOG
+Future<void> _showDisclaimerDialog(BuildContext context) async {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        
+        scrollable: true,
+        
+        backgroundColor: Theme.of(context).colorScheme.background,
+        surfaceTintColor: Theme.of(context).colorScheme.background,
+        title: Text('Disclaimer'),
+        titleTextStyle: GoogleFonts.roboto(
+          textStyle: Theme.of(context).textTheme.titleLarge,
+          fontWeight: FontWeight.bold
+        ),
+        content: Container(
+          child: Column(
+            children: [
+              Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,"),
+              Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,"),
+              Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,"),
+              Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,"),
+              Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,"),
+
+            ],
+          ),
+        ),
+        contentTextStyle: GoogleFonts.roboto(
+          textStyle: Theme.of(context).textTheme.titleMedium,
+          fontWeight: FontWeight.w400
+        ),
+        actionsAlignment: MainAxisAlignment.center,
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('OK'),
+          ),
+          
+        ],
+      );
+    },
+  );
+}
+
 }

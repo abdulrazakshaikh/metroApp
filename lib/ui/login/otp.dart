@@ -9,6 +9,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:metro/ui/dashboard.dart';
+import 'package:metro/ui/home.dart';
 
 
 class OTP extends StatefulWidget {
@@ -191,7 +192,7 @@ class _OTPState extends State<OTP> with TickerProviderStateMixin {
                           onPressed: () {
                             Navigator.pushReplacement<void, void>(
                               context, MaterialPageRoute(
-                                builder: (BuildContext context) => Dashboard(title: 'Dashboard')
+                                builder: (BuildContext context) => Home(title: 'Dashboard')
                               )
                             );
                           },
